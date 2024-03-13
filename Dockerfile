@@ -1,20 +1,22 @@
-# Utiliser une image PHP officielle en tant que base
-FROM php:latest
+FROM php:8.2-apache
 
-# Définir le répertoire de travail dans le conteneur
-WORKDIR /app
+# Installe les extensions PHP nécessaires
+RUN apt-get update && apt-get install -y \
+    zlib1g-dev \
+    libwebp-dev \
+    libpng-dev \
+    libzip-dev \
+    && docker-php-ext-install gd zip pdo pdo_mysql
 
-# Copier les fichiers de l'hôte vers le conteneur
-COPY . .
+# Active le module rewrite pour Apache
+RUN a2enmod rewrite
 
-# Installer curl nécessaire pour télécharger Composer
-RUN apt-get update && apt-get install -y curl
+# Redémarre le service Apache
+RUN service apache2 restart
 
-# Télécharger et installer Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Définit les variables d'environnement SMTP pour PHP
+ENV SMTP_HOST maildev
+ENV SMTP_PORT 25
 
-# Installer les dépendances de l'application avec Composer
-RUN composer install
-
-# Exécuter l'application lors du démarrage du conteneur
-CMD ["php", "index.php"]
+# Expose le port 80
+EXPOSE 80
