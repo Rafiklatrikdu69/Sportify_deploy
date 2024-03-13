@@ -16,3 +16,12 @@ jobs:
         run: composer install
       - name: Running phpunit
         run: ./vendor/bin/phpunit tests
+
+  build-docker-image:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Build Docker image
+        run: docker build -t your-image-name:latest .
