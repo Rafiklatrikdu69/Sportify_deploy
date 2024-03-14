@@ -14,8 +14,7 @@ RUN a2enmod rewrite
 # Redémarre le service Apache
 RUN service apache2 restart
 
-COPY ../.. /var/www/html
-# Définit les variables d'environnement SMTP pour php
+# Définit les variables d'environnement SMTP pour PHP
 ENV SMTP_HOST maildev
 ENV SMTP_PORT 25
 
