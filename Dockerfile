@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 # Active le module rewrite pour Apache
 RUN a2enmod rewrite
-
+COPY . /var/www/html
 # Redémarre le service Apache
 RUN service apache2 restart
 
