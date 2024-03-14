@@ -26,5 +26,5 @@ jobs:
       - name: Build Docker image
         run: |
           docker-compose build
-          docker-compose push
-        working-directory: .  # Assurez-vous d'exécuter les commandes dans le répertoire contenant docker-compose.yml
+          docker-compose push rafik1212/your-image-name
+        working-directory: .
