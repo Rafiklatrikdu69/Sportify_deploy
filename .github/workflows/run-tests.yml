@@ -32,6 +32,6 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: rafik1212
-          password: Rafik123+
+          password: rafik123+
       - name: Push Docker image
         run: docker push your-image-name:latest
