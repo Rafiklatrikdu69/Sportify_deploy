@@ -7,7 +7,7 @@ class PronoController implements DefaultJsonController{
         View::View('pronostique',[
             "tableau"=>(new EvenementDAO())->getAll(),
             "tableauProno"=>(new PronostiqueDAO())->selectPronoByUser($_SESSION['nom']),
-            "lastConnection"=>(new UtilisateurDAO())->getLastConnection($_SESSION['nom']),
+            "lastConnection"=>(new utilisateurDAO())->getLastConnection($_SESSION['nom']),
             "tabItems"=>(new ItemsDAO())->getAll(),
             "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom']),
             "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),

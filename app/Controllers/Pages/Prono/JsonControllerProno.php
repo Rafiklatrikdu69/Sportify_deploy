@@ -7,7 +7,7 @@ class JsonControllerProno implements DefaultJsonController{
             $pronostiqueur_id = null;
             if (isset($_SESSION['nom'])) {
                 $nom = $_SESSION['nom'];
-                $pronostiqueur_id = (new UtilisateurDAO())->getUtilisateurByName($nom);
+                $pronostiqueur_id = (new utilisateurDAO())->getUtilisateurByName($nom);
             }
             if ($pronostiqueur_id !== null) {
                 $data = file_get_contents("php://input");
@@ -26,7 +26,7 @@ class JsonControllerProno implements DefaultJsonController{
                     if($res[0]>=$prono['mise']){ 
                         if( (new PronostiqueDAO())->selectIDPronostiqueur($prono)==FALSE ) {
                             (new PronostiqueDAO())->insertPronostique($prono);
-                            (new UtilisateurDAO())->updatePoint($prono['pronostiqueur_id'],$res[0],$prono['mise']);
+                            (new utilisateurDAO())->updatePoint($prono['pronostiqueur_id'],$res[0],$prono['mise']);
                         }else{
                             echo true;
                         }

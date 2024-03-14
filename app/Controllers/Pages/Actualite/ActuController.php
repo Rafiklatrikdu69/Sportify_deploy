@@ -2,8 +2,8 @@
 class ActuController implements DefaultActualiteStrategy{
     public function index() {
         (new VerifSession());
-        $userId = (new UtilisateurDAO())->getUtilisateurByName($_SESSION['nom']);  
-        $tabUsers = (new UtilisateurDAO())->getAllUsers(); 
+        $userId = (new utilisateurDAO())->getUtilisateurByName($_SESSION['nom']);  
+        $tabUsers = (new utilisateurDAO())->getAllUsers(); 
         
         // Vérifier si la variable de session 'currpost' est définie
         if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
@@ -50,7 +50,7 @@ class ActuController implements DefaultActualiteStrategy{
                     "tabEcusson"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Ecusson"),
                     "userEcusson"=>(new utilisateurDAO())->getEcusson($_SESSION['nom']),
                     "pointsUser"=>(new utilisateurDAO())->getPointUser($_SESSION['nom']),
-                    //"userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
+                 //"userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
                     "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
                     "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
                 ]);
@@ -59,28 +59,28 @@ class ActuController implements DefaultActualiteStrategy{
                     //     $userId = $user->getUtilisateurByName($_SESSION['nom']);
                     //     ${"pdp" . $userId} = (new ActuDAO())->getPdpById($userId);
                     // }
-                }
+}   
             }
             
-            public function sendLikes(){
-                
-                $tabLikesById = (new LikesDAO())->getByUserId($_SESSION['nom']);
-                echo json_encode($tabLikesById);
-                $encodeDataArray = [];
-                
-                foreach($tabLikesById as $like){
-                    if(!empty($like)){
-                        $likeData = [
-                            'postId' => $like->getPostId(),
-                            'userId' => $like->getUserId(),
-                        ];
-                        $encodeDataArray[] = $likeData;
-                    }
-                }
-                
-                echo json_encode([1=>$encodeDataArray],true);
-            }
-            
+public function sendLikes() {
+    $tabLikesById = (new LikesDAO())->getByUserId($_SESSION['nom']);
+    $encodeDataArray = [];
+
+    foreach ($tabLikesById as $like) {
+        if (!empty($like)) {
+            $likeData = [
+                'postId' => $like->getPostId(),
+                'userId' => $like->getUserId(),
+            ];
+            $encodeDataArray[$like->getPostId()] = $likeData; // Key by post ID for easy client-side lookup
+        }
+    }
+
+    // Ensure you only send a single JSON-encoded string back to the client
+    echo json_encode($encodeDataArray);
+}
+          
+
             // ajouter tab likes pour like bleu
             public function profil() {
                         echo "jdsjsfj";

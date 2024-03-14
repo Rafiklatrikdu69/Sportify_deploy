@@ -8,7 +8,7 @@ class JsonControllerLike implements DefaultActualiteStrategy{
             $data = file_get_contents("php://input");
             $like_info = json_decode($data, true);
             $id = $like_info['id'];
-            $user_id = (new UtilisateurDAO())->getUtilisateurByName($_SESSION['nom']);
+            $user_id = (new utilisateurDAO())->getUtilisateurByName($_SESSION['nom']);
             (new ActuDAO())->updateLike($id, $user_id);
             var_dump([]);
             

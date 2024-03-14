@@ -1,7 +1,7 @@
 <?php
 
 
-    class   config {
+    class config {
        
         static $host = 'mysql_db';
         static $db = 'Sportify';

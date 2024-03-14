@@ -1,6 +1,6 @@
 <?php
 
-
+require "../config/Config.php";
 // Implémente le pattern Singleton
 class Singleton 
 {

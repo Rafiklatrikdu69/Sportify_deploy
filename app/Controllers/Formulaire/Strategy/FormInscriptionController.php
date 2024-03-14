@@ -13,10 +13,10 @@ class FormInscriptionController implements DefaultFormController{
             echo $nom . $emailProtect . $mdp;
             $pass_protect = password_hash($mdp, PASSWORD_DEFAULT);
            
-            $select =  (new UtilisateurDAO())->selectInscription($nom,$pass_protect,$emailProtect);
+            $select =  (new utilisateurDAO())->selectInscription($nom,$pass_protect,$emailProtect);
             if(!$select){
-                $utilisateur = new Utilisateur(0,$nom,$emailProtect,$pass_protect,100,0,1,0);
-                (new UtilisateurDAO())->insertUtilisateur($utilisateur);
+                $utilisateur = new utilisateur(0,$nom,$emailProtect,$pass_protect,100,0,1,0);
+                (new utilisateurDAO())->insertUtilisateur($utilisateur);
                 echo "insert reussi !";
                 //Appel script js
                 echo "<script>

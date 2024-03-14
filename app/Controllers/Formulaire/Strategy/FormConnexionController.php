@@ -10,7 +10,7 @@ class FormConnexionController implements DefaultFormController{
            
             echo $mdp;
            
-            $select =  (new UtilisateurDAO())->select($nom,$mdp);
+            $select =  (new utilisateurDAO())->select($nom,$mdp);
             
             if($select){
                 $_SESSION['nom'] = $nom;

@@ -5,7 +5,7 @@ class View{
    
 
     static function View($view,$data =null){
-        $viewChemin = '../app/Views/'.$view.'.php';
+        $viewChemin = '../app/views/'.$view.'.php';
             
         //var_dump($viewChemin);
        if (file_exists($viewChemin)) {
