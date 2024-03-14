@@ -3,7 +3,7 @@
   services:
     # Service de la base de données MySQL
     mysql_db:
-      image: rafik1212/mysql:latest
+      image: mysql:latest
       command: --default-authentication-plugin=mysql_native_password
       # Variables d'environnement pour la base de données
       environment:
