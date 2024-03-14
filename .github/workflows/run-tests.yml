@@ -27,6 +27,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: C:\testPipeline\testPipe\Dockerfile  # Spécifiez le chemin vers votre Dockerfile
+          file: testPipe/Dockerfile  # Spécifiez le chemin vers votre Dockerfile
           push: true
           tags: rafik1212/your-image-name:latest  # Modifiez selon votre nom d'utilisateur Docker Hub et le nom de votre image
