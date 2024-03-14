@@ -9,7 +9,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd zip pdo pdo_mysql
 
 
-RUN apt-get update && apt-get install -y docker-compose
+RUN apt-get update && \
+    apt-get install -y python3-pip && \
+    pip3 install docker-compose
+
 
 COPY . /var/www/html
 # Active le module rewrite pour Apache
