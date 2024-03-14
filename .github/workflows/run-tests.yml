@@ -34,4 +34,4 @@ jobs:
           username: rafik1212
           password: rafik123+
       - name: Push Docker image
-        run: docker push your-image-name:latest
+        run: docker push rafik1212/votre-nom-image:tag
