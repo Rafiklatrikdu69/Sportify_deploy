@@ -11,7 +11,7 @@ class JsonController {
             $prono = json_decode($data, true);
             echo $prono['id'] ;
            
-           (new UtilisateurDAO())->deleteUtilisateurByID($prono['id']);
+           (new utilisateurDAO())->deleteUtilisateurByID($prono['id']);
         }
     }
 }

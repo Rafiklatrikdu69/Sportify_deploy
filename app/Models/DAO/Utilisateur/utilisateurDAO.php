@@ -4,7 +4,7 @@
 
 // include '../vendor/Autoloader.php';
 // seulement l'id et le mail sont unique, deux personnes peuvent avoir le meme nom, prenom, mot de passe
-class UtilisateurDAO extends DAO{
+class utilisateurDAO extends DAO{
     
     public function getAllUsers(){
         $sql = "SELECT * FROM `UTILISATEUR` WHERE STATUS = 1";
@@ -235,8 +235,8 @@ class UtilisateurDAO extends DAO{
         $result = $this->queryRow($sql, array('pseudo' => $name));
         if ($result) {
             if($result['LAST_CONNECTION'] != date("Y-m-d")){
-                (new UtilisateurDAO())->addPoint($name);
-                (new UtilisateurDAO())->setLastConnection($name);
+                (new utilisateurDAO())->addPoint($name);
+                (new utilisateurDAO())->setLastConnection($name);
                 return "Vous avez gagné 10 points pour votre connexion quotidienne !";
             }
             else{

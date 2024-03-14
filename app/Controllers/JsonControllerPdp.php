@@ -7,7 +7,7 @@ class JsonControllerPdp{
             $pdp_info = json_decode($data, true);
             $nom = $_SESSION['nom'];
             $pdp = $pdp_info['pdp'];
-            (new UtilisateurDAO())->updatePdpByName($nom, $pdp);
+            (new utilisateurDAO())->updatePdpByName($nom, $pdp);
             echo "Pdp modifié avec succès";
         }
     }

@@ -141,7 +141,7 @@ class ActuDAO extends DAO{
             // Au lieu de stocker directement les résultats de la requête,
             // récupérez les PDP en utilisant la méthode getPdp de la classe UtilisateurDAO
             $auteurId = $post['AUTEUR_ID'];
-            $pdpSrc = (new UtilisateurDAO())->getPdpById($auteurId);
+            $pdpSrc = (new utilisateurDAO())->getPdpById($auteurId);
             
             // Enregistrez le couple postid et pdp dans le tableau
             $tab[] = [

@@ -7,7 +7,7 @@ class JsonControllerBadge{
             $badge_info = json_decode($data, true);
             $nom = $_SESSION['nom'];
             $badge = $badge_info['badge'];
-            (new UtilisateurDAO())->updateBadgeByName($nom, $badge);
+            (new utilisateurDAO())->updateBadgeByName($nom, $badge);
             echo "Pdp modifié avec succès";
         }
     }
