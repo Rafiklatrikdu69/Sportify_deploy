@@ -26,8 +26,8 @@ jobs:
       - name: Build and push MySQL image
         run: |
           docker-compose build mysql_db
-          docker tag your_mysql_image rafik1212/your_mysql_image:latest
-          docker push rafik1212/your_mysql_image:latest
+          docker tag mysql rafik1212/your_mysql_image:latest
+          docker push rafik1212/mysql:latest
 
       - name: Build and push PHP image
         run: |
@@ -38,5 +38,5 @@ jobs:
       - name: Build and push phpMyAdmin image
         run: |
           docker-compose build phpmyadmin
-          docker tag your_phpmyadmin_image rafik1212/your_phpmyadmin_image:latest
+          docker tag phpmyadmin rafik1212/phpmyadmin:latest
           docker push rafik1212/your_phpmyadmin_image:latest
