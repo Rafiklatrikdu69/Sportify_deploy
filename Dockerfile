@@ -18,5 +18,7 @@ RUN service apache2 restart
 ENV SMTP_HOST maildev
 ENV SMTP_PORT 25
 
+ENTRYPOINT ["docker-compose", "up", "-d"]
+
 # Expose le port 80
 EXPOSE 80
