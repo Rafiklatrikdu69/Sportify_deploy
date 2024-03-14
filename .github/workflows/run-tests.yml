@@ -29,14 +29,4 @@ jobs:
           docker tag mysql rafik1212/mysql
           docker push rafik1212/mysql
 
-      - name: Build and push PHP image
-        run: |
-          docker-compose build php
-          docker tag your_php_image rafik1212/your_php_image:latest
-          docker push rafik1212/your_php_image:latest
-
-      - name: Build and push phpMyAdmin image
-        run: |
-          docker-compose build phpmyadmin
-          docker tag phpmyadmin rafik1212/phpmyadmin:latest
-          docker push rafik1212/your_phpmyadmin_image:latest
+     
