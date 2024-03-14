@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Images
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    name: Build and Push Docker Image
+    name: Build and Push Docker Images
     runs-on: ubuntu-latest
 
     steps:
@@ -23,8 +23,20 @@ jobs:
           username: rafik1212
           password: rafik123+
 
-      - name: Build Docker image
+      - name: Build and push MySQL image
         run: |
-          docker-compose build
-          docker-compose push rafik1212/your-image-name
-        working-directory: .
+          docker-compose build mysql_db
+          docker tag your_mysql_image rafik1212/your_mysql_image:latest
+          docker push rafik1212/your_mysql_image:latest
+
+      - name: Build and push PHP image
+        run: |
+          docker-compose build php
+          docker tag your_php_image rafik1212/your_php_image:latest
+          docker push rafik1212/your_php_image:latest
+
+      - name: Build and push phpMyAdmin image
+        run: |
+          docker-compose build phpmyadmin
+          docker tag your_phpmyadmin_image rafik1212/your_phpmyadmin_image:latest
+          docker push rafik1212/your_phpmyadmin_image:latest
