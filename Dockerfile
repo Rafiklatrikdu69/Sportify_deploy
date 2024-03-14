@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libzip-dev \
     && docker-php-ext-install gd zip pdo pdo_mysql
-
+COPY . /var/www/html
 # Active le module rewrite pour Apache
 RUN a2enmod rewrite
 
