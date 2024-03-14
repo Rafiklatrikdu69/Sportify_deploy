@@ -26,6 +26,6 @@ jobs:
       - name: Build and push MySQL image
         run: |
           docker-compose build 
-          docker push rafik1212/mysql:tagname
+          docker push rafik1212/mysql
 
      
