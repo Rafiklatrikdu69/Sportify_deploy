@@ -47,6 +47,7 @@ class ActuDAO extends DAO{
         $sth = $this->queryAll($sql,array(':nom' => $pseudo));
         $tab = [];
         foreach($sth as $post){
+
             $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],$post[7]);
             $tab[] = $post;
         }

@@ -1,0 +1,57 @@
+
+@font-face {
+    font-family: futura;
+    src: url(font/SansSerifBldFLF.otf);
+}
+*{
+    font-family: futura;
+}
+#coin {
+    background-color: #f0f0f0; /* Couleur de fond */
+    padding: 10px; /* Espacement intérieur */
+    border-radius: 5px; /* Bord arrondi */
+    font-size: 18px; /* Taille de la police */
+    color: #333; /* Couleur du texte */
+}
+
+
+/* Style pour chaque élément généré par la boucle */
+div.post-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style pour le nom de l'auteur */
+div.post-container p.author-name {
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+/* Style pour le titre de l'article */
+div.post-container p.title {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Style pour le contenu de l'article */
+div.post-container p.content {
+    color: #555555;
+    margin-bottom: 15px;
+}
+
+/* Style pour le nombre de likes */
+div.post-container p.likes {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Style pour le nombre de commentaires */
+div.post-container p.comments {
+    color: #ffc107;
+    font-weight: bold;
+}

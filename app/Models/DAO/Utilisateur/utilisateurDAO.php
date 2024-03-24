@@ -31,7 +31,7 @@ class utilisateurDAO extends DAO{
     public function select($nom, $mdp) {
         $sql = "SELECT * FROM `UTILISATEUR` WHERE PSEUDO LIKE :pseudo";
         $res = $this->queryRow($sql, array('pseudo' => $nom));
-        
+
         $bool = FALSE;
         
         if ($res) {
@@ -374,5 +374,11 @@ class utilisateurDAO extends DAO{
             // ou gérer l'absence de PDP comme vous le souhaitez
             return 'chemin/vers/votre/image/par/defaut.jpg';
         }
+    }
+    public function getCommentsByParentPost($parentPostId) {
+        $query = "SELECT * FROM POST WHERE PARENT_POST = :parentPostId";
+
+        $comments = $this->queryAll($query,array("parentPostId"=>$parentPostId));
+        return $comments;
     }
 }

@@ -10,6 +10,7 @@ class Utilisateur {
     private $status;
     private $score_jeu;
 
+
     function __construct($id, $pseudo, $email, $motDePasse, $pointActuel, $pointClassement, $status, $scoreJeu) {
         $this->utilisateur_id = $id;
         $this->pseudo = $pseudo;
@@ -19,6 +20,7 @@ class Utilisateur {
         $this->point_classement = $pointClassement;
         $this->status = $status;
         $this->score_jeu = $scoreJeu;
+
     }
 
     function getUtilisateurId() {
@@ -84,5 +86,7 @@ class Utilisateur {
     function setScoreJeu($scoreJeu) {
         $this->score_jeu = $scoreJeu;
     }
+
+
 }
 ?>

@@ -83,13 +83,13 @@ public function sendLikes() {
 
             // ajouter tab likes pour like bleu
             public function profil() {
-                        echo "jdsjsfj";
+
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     View::View('profil', ["point"=>(new utilisateurDAO())->getPointUser($_POST['pseudo']),
                                     "posts"=>(new ActuDAO())->getPostByNameUser($_POST['pseudo']),
-                                    "userRank"=>(new utilisateurDAO())->getClassement($_POST['pseudo'])]);
-                  var_dump($_POST);
-                   
+                                    "userRank"=>(new utilisateurDAO())->getClassement($_POST['pseudo']),
+                                    "pp"=>(new utilisateurDAO())->getPdp($_POST['pseudo'])
+                    ]);
                 }
                 // View::View('profil', [
                     

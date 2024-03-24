@@ -3,7 +3,7 @@
 
     class config {
        
-        static $host = 'db';
+        static $host = 'mysql_db';
         static $db = 'Sportify';
         static $db_user = 'root';
         static $db_password = 'root';
