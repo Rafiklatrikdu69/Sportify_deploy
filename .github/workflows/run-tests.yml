@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build, Test, and Push
 
 on:
   push:
@@ -6,6 +6,21 @@ on:
       - main  # Déclencher le workflow uniquement pour les pushs sur la branche main
 
 jobs:
+  run-tests:
+    name: Run PHPUnit tests
+    runs-on: ubuntu-latest
+    container:
+      image: composer:latest
+      volumes:
+        - ${{ github.workspace }}:/app
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Running composer install
+        run: composer install
+      - name: Running phpunit
+        run: ./vendor/bin/phpunit tests
+
   build-and-push:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
