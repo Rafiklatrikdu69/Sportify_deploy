@@ -1,10 +1,9 @@
-<?php
-
+<?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
 require "../config/Config.php";
 
-class SingletonTest extends TestCase
+final class SingletonTest extends TestCase
 {
     public function testGetInstance()
     {
