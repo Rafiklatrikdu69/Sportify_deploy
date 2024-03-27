@@ -261,6 +261,88 @@ class utilisateurDAO extends DAO{
   
         return $tab;
     }
+    public function getAffichageSucces($nom)
+    {
+        $tab = [];
+        $sql = "SELECT SUCCES_OBTENU, SUCCES_NAME FROM SUCCES WHERE UTILISATEUR_ID = :id ORDER BY SUCCES_NAME";
+        $succes = $this->queryAll($sql, array('id' => $nom));
+        foreach ($succes as $succe) {
+            $infos = [];
+            $infos[] = $succe[0];
+            $infos[] = $succe[1];
+            $tab[] = $infos;
+        }
+        return $tab;
+    }
+
+    public function getInfoSuccesRestant($id)
+    {
+        $tab = [];
+        $sql = "SELECT NB_LOSE, NB_KILL, NB_BEKILL, NB_JET, NB_PIECE FROM JEU_USER WHERE UTILISATEUR_ID = :id";
+        $succes = $this->queryAll($sql, array('id' => $id));
+        foreach ($succes as $succe) {
+            $infos = [];
+            $infos[] = $succe[0];
+            $infos[] = $succe[1];
+            $infos[] = $succe[2];
+            $infos[] = $succe[3];
+            $infos[] = $succe[4];
+            $tab[] = $infos;
+        }
+        return $tab;
+    }
+
+    public function UpdateSucces($id, $numSucces)
+    {
+
+        $sql = "UPDATE `SUCCES` SET SUCCES_OBTENU = 'TRUE' WHERE UTILISATEUR_ID = :user AND SUCCES_NAME = :numSucces";
+        $this->update($sql, array(
+            "user" => $id,
+            "numSucces" => $numSucces,
+        ));
+
+        $idSucces = $numSucces + 30;
+        $sql2 = "INSERT INTO `INVENTAIRE`(`UTILISATEUR_ID`, `ITEM_ID`) VALUES (:idUser, :idSucces)";
+
+        $this->insert($sql2, array(
+            "idUser" => $id,
+            "idSucces" => $idSucces
+        ));
+    }
+    public function updateJeuUser($id, $lose, $kill, $bekill, $score, $jet, $piece, $foot, $basket, $tennis, $baseball, $rugby, $bowling)
+    {
+        $sql = "UPDATE `JEU_USER` SET 
+                NB_LOSE = NB_LOSE + :lose, 
+                NB_KILL = NB_KILL + :kill, 
+                NB_BEKILL = NB_BEKILL + :bekill, 
+                SCORE_CLASSEMENT = :score, 
+                NB_JET = NB_JET + :jet, 
+                NB_PIECE = NB_PIECE + :piece, 
+
+                NB_PARTIE_FOOT = NB_PARTIE_FOOT + :foot, 
+                NB_PARTIE_BASKET = NB_PARTIE_BASKET + :basket, 
+                NB_PARTIE_TENNIS = NB_PARTIE_TENNIS + :tennis, 
+                NB_PARTIE_BASEBALL = NB_PARTIE_BASEBALL + :baseball, 
+                NB_PARTIE_RUGBY = NB_PARTIE_RUGBY + :rugby, 
+                NB_PARTIE_BOWLING = NB_PARTIE_BOWLING + :bowling
+
+            WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "id" => $id,
+            "lose" => $lose,
+            "kill" => $kill, // Corrigé de "kille" à "kill"
+            "bekill" => $bekill,
+            "score" => $score,
+            "jet" => $jet,
+            "piece" => $piece,
+            "foot" => $foot,
+            "basket" => $basket,
+            "tennis" => $tennis,
+            "baseball" => $baseball,
+            "rugby" => $rugby,
+            "bowling" => $bowling
+        ));
+    }
 
     public function getClassement($name) {
         $sql = "SELECT PSEUDO, POINT_CLASSEMENT FROM `UTILISATEUR` ORDER BY POINT_CLASSEMENT DESC";

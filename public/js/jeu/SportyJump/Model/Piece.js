@@ -115,6 +115,7 @@ function PieceTouchee() {
         piece.style.left = getXPiece() - 32 + "px";
         piece.style.top = getYPiece() - 18 + "px";
         pieceTouch = true;
+        setNbPieceSucces();                 //SUCCES; 
     }
 }
 

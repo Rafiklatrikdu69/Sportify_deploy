@@ -15,9 +15,11 @@
     <script src="TableauScore/jet.js" defer></script>
     <script src="Controleur/ActionBallon.js" defer></script>
     <script src="Controleur/ActionTableauScore.js" defer></script>
+    <script src="Model/Succes.js" defer></script>
     <script src="TableauScore/Main.js" defer></script>
     <title>SportyJump_Menu</title>
 </head>
+
 <body>
     <header>
         <a id="accueil" href="/public"><img src="logo.png"></a>
@@ -29,7 +31,7 @@
     </header>
     <div class="interfaceJeu">
         <p class="titreTableauScore">- Tableau des Scores -</p>
-            <table class="tableauScore">
+        <table class="tableauScore">
             <tr class="ligne0">
                 <td> RANG </td>
                 <td> SCORE </td>
@@ -88,14 +90,14 @@
         </table>
         <img id="terrain" src="Dessin/Terrain/TableauScore.png" alt="Mon Image">
         <p id="boutonMenu" class="boutonMenu"> Retour au Menu </p>
-            <img id="ballonImage" src="Dessin/Ballon/ballon_foot.png" alt="Mon Image">
-            <img id="jet" src="Dessin/Plateforme/jet.png" alt="Mon Image">
-            <div class="invisible">
-                <img id="ballonHitBoxSaut" src="Dessin/Ballon/HitBox.png" alt="Mon Image">
-                <img id="ballonHitBoxGet" src="Dessin/Ballon/HitBoxGet.png" alt="Mon Image">
-                <img id="monstreHitBoxAttack" src="Dessin/Monstre/HitBoxMonstre.png" alt="Mon Image">
-                <img id="monstreHitBoxVulnerable" src="Dessin/Monstre/HitBoxVulnerableMonstre.png" alt="Mon Image">
-            </div>
+        <img id="ballonImage" src="Dessin/Ballon/ballon_foot.png" alt="Mon Image">
+        <img id="jet" src="Dessin/Plateforme/jet.png" alt="Mon Image">
+        <div class="invisible">
+            <img id="ballonHitBoxSaut" src="Dessin/Ballon/HitBox.png" alt="Mon Image">
+            <img id="ballonHitBoxGet" src="Dessin/Ballon/HitBoxGet.png" alt="Mon Image">
+            <img id="monstreHitBoxAttack" src="Dessin/Monstre/HitBoxMonstre.png" alt="Mon Image">
+            <img id="monstreHitBoxVulnerable" src="Dessin/Monstre/HitBoxVulnerableMonstre.png" alt="Mon Image">
+        </div>
     </div>
 
     <div class="tuto" id="tuto">
@@ -112,6 +114,334 @@
             </div>
             <div class="cercle_Tuto"></div>
             <div class="fleche"></div>
+        </div>
+    </div>
+
+    <div class="succes">
+        <div class="circleSucces" id="circleSucces">
+            <img id="trophée" src="../../../images/succes/trophée.png">
+        </div>
+        <div class="rectangleSucces" id="rectangleSucces">
+            <div class="rectangleSucces2" id="rectangleSucces2">
+                <p> Succès à débloquer</p>
+                <a> ● Section jump & fall </a>
+
+                <br>
+                <div class="categorieSucces" style="margin-top: 10px;">
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone31.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Perdre au moins 10 parties <br> Reste: 10</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone32.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Perdre au moins 15 parties <br> Reste: 15</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone33.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Perdre au moins 30 parties <br> Reste: 30</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone34.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Effectuer 30 sauts au court d'une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone35.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Effectuer 60 sauts au court d'une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barreSeparation"> </div>
+                </div>
+                <br>
+                <div class="espace"></div>
+                <a> ● Section kill & be kill </a>
+                <br>
+                <div class="categorieSucces" style="margin-top: 10px;">
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone36.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Tuer 2 monstres en une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone37.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Tuer 10 monstres en une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone38.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Tuer 40 monstres au total <br> Reste: 40</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone39.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Mourir 5 fois par un monstre <br> Reste: 5</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone40.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Mourir 15 fois par un monstre <br> Reste: 15</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barreSeparation"> </div>
+                </div>
+                <br>
+                <div class="espace"></div>
+                <a> ● Section score & mount </a>
+                <br>
+                <div class="categorieSucces" style="margin-top: 10px;">
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone41.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Atteindre 20 000 points de score au cours d'une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone42.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Atteindre 100 000 points de score au cours d'une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone43.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Obtenir au moins une fois le meilleur score du jeu</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barreSeparation"> </div>
+                </div>
+                <br>
+                <div class="espace"></div>
+                <a> ● Section get && lose </a>
+                </br>
+                <div class="categorieSucces" style="margin-top: 10px;">
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone44.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Atteindre 20 000 points de score en ne ramassant aucune pièce</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone45.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Atteindre 60 000 points de score en ne ramassant aucune pièce</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone46.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Obtenir 5 pièce en lançant une seule partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone47.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Obtenir 20 pièce en lançant une seule partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone48.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Obtenir 300 pièces <br> Reste: 300</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barreSeparation"> </div>
+                </div>
+                <br>
+                <div class="espace"></div>
+                <a> ● Section jetpack & spring </a>
+                <br>
+                <div class="categorieSucces" style="margin-top: 10px;">
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone49.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Obtenir un jetpack au moins 3 fois en une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone50.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a id="resteSucces">Utiliser 20 jetpack au total <br> Reste: 20</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone51.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Sautez 10 fois sur un ressort au court d'une partie</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barreSeparation"> </div>
+                </div>
+                <br>
+                <div class="espace"></div>
+                <a> ● Section sport & choice </a>
+                <br>
+                <div class="categorieSucces">
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone52.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Jouer au moins une fois à tout les types de sport</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone53.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Jouer au moins 15 fois à un même type de sport</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="barreSeparation"> </div>
+                </div>
+                <br>
+                <div class="espace"></div>
+                <a> ● Section others </a>
+                <br>
+                <div class="categorieSucces">
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone54.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Atteigner 50 000 de score sans récupérer de pièces et tuer de monstres</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone55.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Rester 3 minutes sur l'écran du menu</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone56.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Prochainement</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone57.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Enchaîner en une partie 20 téléportations au bord du jeu</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone58.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Prochainement</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone59.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Intégrer le top 10 du jeu en jouant au mode football</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadreSucces">
+                        <img src="../../../images/Icone60.png">
+                        <div class="descriptionSucces2">
+                            <div class="descriptionTriangle"></div>
+                            <div class="descriptionSucces">
+                                <a>Obtenir tous les succes du jeu disponible</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

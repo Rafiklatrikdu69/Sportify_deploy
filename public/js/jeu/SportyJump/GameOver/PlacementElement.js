@@ -56,24 +56,24 @@ function PlacementTitre() {
 function PlacementScore() {
     var scoreTexte = JSON.parse(localStorage.getItem("scoreTexte"));
     var nbPieceTexte = JSON.parse(localStorage.getItem("nbPieceTexte"));
-    
-    function Score (score){
+
+    function Score(score) {
         this.score = score;
     }
-    e = new Score(scoreTexte*1)
+    e = new Score(scoreTexte * 1)
 
     fetch('/public/json-jeu-UpdateScoreJeu', {
         "method": "POST",
         "headers": {
             "Content-Type": "application/json; charset=utf-8"
         },
-      
-        "body": JSON.stringify(e) 
+
+        "body": JSON.stringify(e)
     })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        })
 
     var s = document.getElementById("actuelScore");
     s.innerHTML = "VOTRE SCORE:" + scoreTexte;
@@ -95,44 +95,44 @@ function PlacementScore() {
 
     //FETCH => MEILLEUR SCORE GLOBAL DU JEU; 
     fetch('/public/json-jeu-getMeilleurScore')
-    .then(response => response.text())
-     .then(data => {
-        donnee = JSON.parse(data);
-        console.log(donnee); 
-        s3.innerHTML = "Meilleur score global:" + donnee[1]; 
-     });
+        .then(response => response.text())
+        .then(data => {
+            donnee = JSON.parse(data);
+            console.log(donnee);
+            s3.innerHTML = "Meilleur score global:" + donnee[1];
+        });
 
     //FETCH => MEILLEUR SCORE PERSONNEL DU JOUEUR; 
     fetch('/public/json-jeu-getMeilleurScoreUser')
-    .then(response => response.text())
-     .then(data => {
-        donnee = JSON.parse(data);
-        console.log(donnee); 
-        s2.innerHTML = "Votre meilleur score:" + donnee[1];  
-     });
+        .then(response => response.text())
+        .then(data => {
+            donnee = JSON.parse(data);
+            console.log(donnee);
+            s2.innerHTML = "Votre meilleur score:" + donnee[1];
+        });
 
     var s4 = document.getElementById("pieceScore");
     s4.innerHTML = "×" + nbPieceTexte;
 
     var activer = JSON.parse(localStorage.getItem("activerModification"));
-    console.log(activer); 
-    if(activer){
-         function Score (score){
+    console.log(activer);
+    if (activer) {
+        function Score(score) {
             this.score = score;
         }
-        e = new Score(nbPieceTexte*1)
+        e = new Score(nbPieceTexte * 1)
         fetch("/public/json-jeu-insere", {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json; charset=utf-8"
             },
-          
+
             "body": JSON.stringify(e)
         })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-        })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+            })
         localStorage.setItem("activerModification", JSON.stringify(false));
     }
     point = document.getElementsByClassName('point-user')[0];
@@ -140,9 +140,9 @@ function PlacementScore() {
         .then(response => response.text())
         .then(data => {
             donnee = JSON.parse(data);
-            point.innerHTML= "Vous avez "+donnee[1]+" points";
+            point.innerHTML = "Vous avez " + donnee[1] + " Sportycoins";
         });
-    
+
     s4.style.position = "absolute";
     s4.style.left = getXTerrain() + 350 / getFacteur() + "px";
     s4.style.top = getYTerrain() + 1435 / getFacteur() + placement3 + "px";

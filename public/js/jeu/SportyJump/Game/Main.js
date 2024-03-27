@@ -39,4 +39,6 @@ window.onload = function () {
 
     startTimerBallonDeplacement();
     startTimerConfigurationModels();
+
+    setSucces();
 }

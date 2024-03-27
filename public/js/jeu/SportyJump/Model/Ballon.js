@@ -9,8 +9,6 @@ var monstreTouch = false;
 let reinitialiseBallon;
 var keyDroite = false;
 var keyGauche = false;
-var nbPlateformeTouch = 0;
-var nbMonstreTouch = 0;
 var invulnerable = false;
 //================================================================== Configuration ==================================================================//
 //================================================================== Configuration ==================================================================//
@@ -147,10 +145,12 @@ function setDirectionGauche() {
 function teleportationDroite() {
     ballonHitBoxSaut.style.left = getLongueurTerrain() + getXTerrain() - getLongueurHitBoxSaut() + "px";
     egaliserCoo();
+    setNbTeleportationSucces();         //SUCESS; 
 }
 function teleportationGauche() {
     ballonHitBoxSaut.style.left = getXTerrain() + "px";
     egaliserCoo();
+    setNbTeleportationSucces();         //SUCESS; 
 }
 function setKeyDroite(key) {
     keyDroite = key;
@@ -202,8 +202,8 @@ function IsPlateformeTouch(plateforme) {
         EquilibrageJumpEtVitesse();
         makeJump();
         setRebond(typeBallon);
-        nbPlateformeTouch++;
         invulnerable = false;
+        setSuccesJump();
     }
     return op;
 }
@@ -224,7 +224,8 @@ function BallonElimineMonstre() {
         makeJump();
         setRebond(getType());
         EliminerMonstre();
-        nbMonstreTouch++;
+
+        setNbTueMonstreSucces();            //SUCCES; 
     }
 }
 //Méthodes utilsées dans le fichier monstre.js; 
@@ -252,6 +253,7 @@ function GameOver() {
         window.location.href = "GameOver.html?entier=" + encodeURIComponent(getType());
         //console.log("nombre de plateforme touchée : " + nbPlateformeTouch);
         //console.log("nombre de monstre éliminé : " + nbMonstreTouch);
+        updateJeuUserSucces();          //SUCCES; 
     }
 }
 

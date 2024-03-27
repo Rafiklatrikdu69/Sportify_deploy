@@ -73,6 +73,7 @@ function RessortIsTouch() {
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXRessort() && getXBallonHitBoxSaut() <= getXRessort() + getLongueurRessort() &&
         getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYRessort() && getYBallonHitBoxSaut() <= getYRessort() + getLargeurRessort() + 10) {
 
+        setNbRessortSucces();               //SUCCES; 
         DescenteElement();
         setRebond(getType());
         setRebondissement();
@@ -204,6 +205,7 @@ function JetPackIsTouch() {
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXJet() && getXBallonHitBoxSaut() <= getXJet() + getLongueurJet() &&
         getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYJet() && getYBallonHitBoxSaut() <= getYJet() + getLargeurJet()) {
 
+        setNbJetPackSucces();           //SUCCES; 
         jetIsTouch = true;
         jetIsNull = true;
         stopTimerBallonDeplacement();

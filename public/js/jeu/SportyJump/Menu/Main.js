@@ -1,50 +1,54 @@
 window.onload = function () {
-    setTerrain();
-    setImageTerrain();
-    setImageBallon(getType());
+   setTerrain();
+   setImageTerrain();
+   setImageBallon(getType());
 
-    PlacementBallonHitBoxSaut();
-    DefinirTailleBallonHitBoxSaut();
+   PlacementBallonHitBoxSaut();
+   DefinirTailleBallonHitBoxSaut();
 
-    PlacementBallonHitBoxGet();
-    DefinirTailleBallonHitBoxGet();
+   PlacementBallonHitBoxGet();
+   DefinirTailleBallonHitBoxGet();
 
-    PlacementBallonImage();
-    DefinirTailleBallonImage();
+   PlacementBallonImage();
+   DefinirTailleBallonImage();
 
-    PlacementPlateforme();
-    DefinirTaillePlateforme();
+   PlacementPlateforme();
+   DefinirTaillePlateforme();
 
-    PlacementTitre();
-    DefinirTailleTitre();
+   PlacementTitre();
+   DefinirTailleTitre();
 
-    PlacementBoutonJouer();
-    DefinirTailleBoutonJouer();
+   PlacementBoutonJouer();
+   DefinirTailleBoutonJouer();
 
-    PlacementBoutonClassement();
-    DefinirTailleBoutonClassement();
+   PlacementBoutonClassement();
+   DefinirTailleBoutonClassement();
 
-    PlacementFlecheDroite();
-    DefinirTailleFlecheDroite();
+   PlacementFlecheDroite();
+   DefinirTailleFlecheDroite();
 
-    PlacementFlecheGauche();
-    DefinirTailleFlecheGauche();
+   PlacementFlecheGauche();
+   DefinirTailleFlecheGauche();
 
-    PlacementBanderole();
-    DefinirTailleBanderole();
+   PlacementBanderole();
+   DefinirTailleBanderole();
 
-    BoutonPressed();
-    BoutonReleased();
-    BoutonClick();
+   BoutonPressed();
+   BoutonReleased();
+   BoutonClick();
 
-    startTimerMenu();
+   startTimerMenu();
 
-    point = document.getElementsByClassName('point-user')[0];
-    fetch('/public/json-point-jeu')
-    .then(response => response.text())
-     .then(data => {
-        donnee = JSON.parse(data);
-        console.log(donnee); 
-        point.innerHTML= "Vous avez "+donnee[1]+" points";
-     });
+   point = document.getElementsByClassName('point-user')[0];
+   fetch('/public/json-point-jeu')
+      .then(response => response.text())
+      .then(data => {
+         donnee = JSON.parse(data);
+         console.log(donnee);
+         point.innerHTML = "Vous avez " + donnee[1] + " Sportycoins";
+      });
+
+   setSucces();
+
+   setSucceTimerMenu();          //SUCCES; 
 }

@@ -23,6 +23,7 @@ function diminuerPoint() {
 function augmenterScore() {
     score = score + point;
     scoreTexte.innerHTML = score;
+    setGetandLoseSucces();              //SUCCES; 
 }
 function augmenterNbPiece() {
     nbPiece = nbPiece + 1;
@@ -122,10 +123,10 @@ function stopTimerScoreMonstre() {
 //================================================================== Score JetPack ==================================================================//
 //================================================================== Score JetPack ==================================================================//
 
-var pointJet = 0; 
+var pointJet = 0;
 function augmenterScoreJet() {
-    if(pointJet < 20){
-        pointJet ++; 
+    if (pointJet < 20) {
+        pointJet++;
     }
     score = score + pointJet;
     scoreTexte.innerHTML = score;

@@ -162,6 +162,7 @@ function MonstreElimineBallon() {
         ballonTouch = true;
         resetGravity();
         trueMonstreTouch();
+        setMonstreElimineBallonSucces()         //SUCCES; 
     }
 }
 function EliminationDuMonstre() {
