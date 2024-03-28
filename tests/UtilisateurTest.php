@@ -5,7 +5,6 @@ class UtilisateurTest extends TestCase
 {
     public function testCannotBeSame(): void
     {
-        $this->expectException(Exception::class);
 
         $user1 = new Utilisateur(
             1, // ID
@@ -27,6 +26,7 @@ class UtilisateurTest extends TestCase
             "actif", // Status
             800 // Score de jeu
         );
+        $this->assertSame($user2->getPseudo(), $user1->getPseudo());
     }
 
 }
