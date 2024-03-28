@@ -26,7 +26,7 @@ class UtilisateurTest extends TestCase
             "actif", // Status
             800 // Score de jeu
         );
-        $this->assertSame($user2->getPseudo(), $user1->getPseudo());
+        $this->assertNotEquals($user2->getPseudo(), $user1->getPseudo());
     }
 
 }
