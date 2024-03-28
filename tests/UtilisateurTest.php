@@ -19,7 +19,7 @@ class UtilisateurTest extends TestCase
         );
         $user2 = new Utilisateur(
             2, // ID
-            "pseudo123", // Pseudo (le même pseudo)
+            "pseudo1233", // Pseudo (le même pseudo)
             "exemple2@example.com", // Email
             "motdepasse456", // Mot de passe
             150, // Point actuel
