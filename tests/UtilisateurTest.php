@@ -28,5 +28,20 @@ class UtilisateurTest extends TestCase
         );
         $this->assertNotEquals($user2->getPseudo(), $user1->getPseudo());
     }
+    public function testCannotBeMinus(): void
+    {
+
+        $user1 = new Utilisateur(
+            1, // ID
+            "pseudo123", // Pseudo
+            "exemple@example.com", // Email
+            "motdepasse123", // Mot de passe
+            100, // Point actuel
+            500, // Point classement
+            "actif", // Status
+            750 // Score de jeu
+        );
+        $this->assertGreaterThan(6, strlen($user1->getMotDePasse()));
+    }
 
 }
